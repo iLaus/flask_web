@@ -2,5 +2,5 @@
 #!/usr/bin/python
 
 from flask import Blueprint
-evaluation = Blueprint('evaluation', __name__, url_prefix='/evaluation/api')
+users = Blueprint('users', __name__, url_prefix='/users/api')
 from . import urls
