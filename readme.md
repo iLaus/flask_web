@@ -9,10 +9,10 @@
 
 ## 运行项目：
 
-1. 项目采用 flask-script 来管理运行
-	** 运行： python3 app.py runserver -h 0.0.0.0 -p 9000
+* 项目采用 flask-script 来管理运行
+	* 运行： python3 app.py runserver -h 0.0.0.0 -p 9000
 
-2. 项目采用 flask-sqlalchemy 来链接映射数据库
-3. 项目采用 flask-blueprint 管理划分不同的 module
-4. 项目采用 flask-restful 实现接口
-5. 项目采用 flask-migrate 构建 sqlalchemy 的迁移文件
+* 项目采用 flask-sqlalchemy 来链接映射数据库
+* 项目采用 flask-blueprint 管理划分不同的 module
+* 项目采用 flask-restful 实现接口
+* 项目采用 flask-migrate 构建 sqlalchemy 的迁移文件
