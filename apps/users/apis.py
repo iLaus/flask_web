@@ -12,9 +12,8 @@ class UserCenter(Resource):
 
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
-        # self.reqparse.add_argument('title', type = str, location = 'json')
-        # self.reqparse.add_argument('description', type = str, location = 'json')
-        # self.reqparse.add_argument('done', type = bool, location = 'json')
+        self.reqparse.add_argument('username', type = str, location='json')
+        self.reqparse.add_argument('password', type = str, location='json')
         super(UserCenter, self).__init__()
 
     def get(self):
@@ -22,10 +21,17 @@ class UserCenter(Resource):
 
     def post(self):
         # 用户注册
+        try:
+            data = self.reqparse.parse_args()
+            if data.get("username") and data.get("password"):
+                print (data)
+                user = User(**data)
+                db.session.add(user)
+                db.session.commit()
+                return {"status": "SUCC", "message": u"成功注册"}
+            return {"status": "FAIL", "message": u"用户名和密码传入错误"}
 
-        args = self.reqparse.parse_args()
-        for key, value in args.iteritems():
-            print(key, value)
-            # if v != None:
-                # task[k] = v
-        pass
+        except Exception as ex:
+            print("exception : {}".format(ex))
+            return {"status": "FAIL", "message": u"注册失败"}
+
